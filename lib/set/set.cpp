@@ -6,7 +6,7 @@ void SET::swap(int *pa, int *pb){
   *pa = *pb;
   *pb = tmp;
 }
-void SET::bubble_sort(int n, int a[]){
+ void SET::bubble_sort(int n, int a[]){
 int i, j;
   for (i = 0; i < n; i++) {
     for (j = 1; j < n - i; j++) {

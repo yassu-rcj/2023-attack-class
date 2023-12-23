@@ -2,6 +2,8 @@
 #include <timer.h>
 #include <set.h>
 #include <Arduino.h>
+#include <math.h>
+#define pi 3.141592653
 void BALL::ba_val(){
 timer timer1;
   int val1= PINA & _BV(6);
@@ -35,4 +37,72 @@ if (i<844){
 for (int i = 0; i < 16; i++) {
      ba[i] = 0;
 }
+}
+}
+void BALL::sort(){
+  SET::bubble_sort(16,ba);
+  for (int n =15; n>10; n--){
+    if (ba[n]==ball1){//90
+      x[15-n]=ball1;
+      y[15-n]=0;
+    } else if (ba[n]==ball2){//67.5
+      x[15-n]=0.3826834*ball2;
+      y[15-n]=0.9238795*ball2;
+    }else if (ba[n]==ball3){//45
+      x[15-n]=0.7071067*ball3;
+      y[15-n]=0.7071067*ball3;
+    }else if (ba[n]==ball4){//22.5
+      x[15-n]=0.92387953*ball4;
+      y[15-n]=0.38268343*ball4;
+    }else if (ba[n]==ball5){//0
+      x[15-n]=ball5;
+      y[15-n]=0;
+    }else if (ba[n]==ball6){//337.5
+      x[15-n]=0.9238795*ball6;
+      y[15-n]=-0.3826834*ball6;
+    }else if (ba[n]==ball7){//315
+      x[15-n]=0.7071067*ball7;
+      y[15-n]=-0.7071067*ball7;
+    }else if (ba[n]==ball8){//292.5
+      x[15-n]=0.38268343*ball8;
+      y[15-n]=-0.9238795*ball8;
+    }else if (ba[n]==ball9){//270
+      x[15-n]=0;
+      y[15-n]=-1*ball9;
+    }else if (ba[n]==ball10){//247.5
+      x[15-n]=-0.3826834*ball10;
+      y[15-n]=-0.9238795*ball10;
+    }else if  (ba[n]==ball11){//225
+      x[15-n]=-0.7071067*ball11;
+      y[15-n]=-0.7071067*ball11;
+    }else if (ba[n]==ball12){//202.5
+      x[15-n]=-0.9238795*ball12;
+      y[15-n]=-0.3826834*ball12;
+    }else if (ba[n]==ball13){//180
+      x[15-n]=-1*ball13;
+      y[15-n]=0;
+    }else if (ba[n]==ball14){//157.5
+      x[15-n]=-0.9238795*ball14;
+      y[15-n]=0.3826834*ball14;
+    }else if (ba[n]==ball15){//135
+      x[15-n]=-0.7071067*ball15;
+      y[15-n]=0.7071067*ball15;
+    }else if (ba[n]==ball16){//112.5
+      x[15-n]=-0.3826834*ball16;
+      y[15-n]=0.9238795*ball16;
+    }
+  }
+ 
+}
+float BALL::ball_deg(){
+     ba_val();
+    sort();
+    float ret = atan2f(x1+x2+x3+x4+x5,y1+y2+y3+y4+y5);
+    float deg_old= (180/pi)* ret;
+  return SET::degfunc2((180/pi)* ret);
+}
+float BALL::ball_r(){
+  ba_val();
+  sort();
+  return rev_value*(sqrtf(((x1+x2+x3+x4+x5)*(x1+x2+x3+x4+x5))+((y1+y2+y3+y4+y5)*(y1+y2+y3+y4+y5))));
 }
