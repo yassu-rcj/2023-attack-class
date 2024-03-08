@@ -11,9 +11,7 @@ float average=0;
 float sum=0;
 public:
 void setlength(int);
-float entervalue(float);
-void movingaverage();
-float returnAve();
+float movingaverage(float);
 void reset();
 void SumOfArray();
 };
