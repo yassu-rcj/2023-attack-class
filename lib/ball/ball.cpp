@@ -176,3 +176,7 @@ float BALL::ball_r_notpro()
   r_pro = degfunc2(r_notpro);
   return r_notpro;
 }
+void BALL()
+{
+  pinMode();
+}

@@ -11,5 +11,5 @@ PDcon::PD(float NOW, float tardeg)
     float pre_diff = tardeg - NOW;
     float diff = tardeg - NOW;
     int time = timer_a.read_us();
-    PD_power = (tardeg - NOW) * P_gain - (diff - pre_diff) / time
+    PD_power = (tardeg - NOW) * P_gain - (diff - pre_diff) / time;
 }

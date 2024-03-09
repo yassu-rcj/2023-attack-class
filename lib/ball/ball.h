@@ -22,4 +22,5 @@ public:
     float ball_r_notpro();
     MAandRingBufa deg;
     MAandRingBufa r;
+    BALL();
 };
