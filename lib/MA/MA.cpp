@@ -15,18 +15,21 @@ float MAandRingBufa::entervalue(float value)
             average = sum / (count + 1);
             return average;
         }
+        else if (count == 21)
+        {
+            count = 0;
+            average = ((sum - record[0]) / 21) + (value / 21);
+            times++;
+            return average;
+        }
         else
         {
-            else if (count == 21)
-            {
-                count == 0;
-                average = ((sum - record[0]) / 21) + (value / 21);
-                times++;
-                return average;
-            }
+            Serial.begin(9600);
+            Serial.println("error");
+            return -1;
         }
     }
-    else if (1 <= times || times <= n)
+    else if (1 <= times || times <= length)
     {
         if (count <= 20)
         {
@@ -35,7 +38,7 @@ float MAandRingBufa::entervalue(float value)
         }
         else
         {
-            count == 0;
+            count = 0;
             average = ((sum - record[0]) / 21) + (value / 21);
             times++;
             return average;
@@ -43,7 +46,20 @@ float MAandRingBufa::entervalue(float value)
     }
     else
     {
-        MAandRingBufa::reset();
+        if (count <= 20)
+        {
+            average = ((sum - record[count]) / 21) + (value / 21);
+            MAandRingBufa::reset();
+            return average;
+        }
+        else
+        {
+            count = 0;
+            average = ((sum - record[0]) / 21) + (value / 21);
+            times++;
+            MAandRingBufa::reset();
+            return average;
+        }
     }
 }
 void MAandRingBufa::SumOfArray()
@@ -54,14 +70,14 @@ void MAandRingBufa::SumOfArray()
     }
 }
 
-void reset()
+void MAandRingBufa::reset()
 {
-    count = -1;
-    top = 0;
-    bottom = 0;
-    times = 0;
-    for (int i = 0; i <= 20; i++;)
+    this->count = -1;
+    this->top = 0;
+    this->bottom = 0;
+    this->times = 0;
+    for (int i = 0; i <= 20; i++)
     {
-        record[i] = 0;
+        this->record[i] = 0.0;
     }
 }

@@ -1,7 +1,11 @@
+#ifndef BALL_H
+#define BALL_H
 #include <Arduino.h>
 #include <timer.h>
 #include <set.h>
-class BALL
+#include <math.h>
+#include <MA.h>
+class Ball
 {
 private:
     int ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, ball10, ball11, ball12, ball13, ball14, ball15, ball16;
@@ -20,7 +24,8 @@ public:
     void ba_val();
     float ball_deg_notpro();
     float ball_r_notpro();
-    MAandRingBufa deg;
-    MAandRingBufa r;
-    BALL();
+    MAandRingBufa degree;
+    MAandRingBufa distance;
+    Ball();
 };
+#endif

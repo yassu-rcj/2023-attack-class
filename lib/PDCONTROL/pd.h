@@ -9,7 +9,7 @@ private:
     float P_power, PD_power;
 
 public:
-    P(float, float);
-    PD(float, float);
-}
+    int P(float NOW, float tardeg);
+    int PD(float NOW, float tardeg);
+};
 #endif

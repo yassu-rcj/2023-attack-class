@@ -1,12 +1,9 @@
 #include <ball.h>
-#include <timer.h>
-#include <set.h>
-#include <Arduino.h>
-#include <math.h>
 #define pi 3.141592653
-MAandRingBufa degree;
-MAandRingBufa distance;
-void BALL::ba_val()
+Ball::Ball()
+{
+}
+void Ball::ba_val()
 {
   timer timer1;
   int val1 = PINA & _BV(6);
@@ -50,9 +47,9 @@ void BALL::ba_val()
     }
   }
 }
-void BALL::sort()
+void Ball::sort()
 {
-  SET::bubble_sort(16, ba);
+  Set::bubble_sort(16, ba);
   for (int n = 15; n > 10; n--)
   {
     if (ba[n] == ball1)
@@ -137,46 +134,45 @@ void BALL::sort()
     }
   }
 }
-float BALL::ball_deg_pro() // deg_proは方位角
+float Ball::ball_deg_pro() // deg_proは方位角
 {
   ba_val();
   sort();
   ret = atan2f(x1 + x2 + x3 + x4 + x5, y1 + y2 + y3 + y4 + y5);
   deg_old = (180 / pi) * ret * rev_value_deg;
-  deg_notpro = degree.movigaverage(deg_old);
-  deg_pro = degfunc2(deg_notpro);
+  deg_notpro = degree.entervalue(deg_old);
+  deg_pro = Set::degfunc2(deg_notpro);
   return deg_pro;
 }
-float BALL::ball_r_pro()
+float Ball::ball_r_pro()
 {
   ba_val();
   sort();
-  r = sqrtf(((x1 + x2 + x3 + x4 + x5) * (x1 + x2 + x3 + x4 + x5)) + ((y1 + y2 + y3 + y4 + y5) * (y1 + y2 + y3 + y4 + y5)));
-  r_notpro = distance.movingaverage(r) * rev_value_r;
-  r_pro = degfunc2(r_notpro);
+  float r = sqrtf(((x1 + x2 + x3 + x4 + x5) * (x1 + x2 + x3 + x4 + x5)) + ((y1 + y2 + y3 + y4 + y5) * (y1 + y2 + y3 + y4 + y5)));
+  r_notpro = distance.entervalue(r) * rev_value_r;
+  r_pro = Set::degfunc2(r_notpro);
   return r_pro;
 }
 
-float BALL::ball_deg_notpro() // degは仰角
+float Ball::ball_deg_notpro() // degは仰角
 {
   ba_val();
   sort();
   ret = atan2f(x1 + x2 + x3 + x4 + x5, y1 + y2 + y3 + y4 + y5);
   deg_old = (180 / pi) * ret * rev_value_deg;
-  deg_notpro = degree.movigaverage(deg_old);
-  deg_pro = degfunc2(deg_notpro);
+  deg_notpro = degree.entervalue(deg_old);
+  deg_pro = Set::degfunc2(deg_notpro);
   return deg_notpro;
 }
-float BALL::ball_r_notpro()
+float Ball::ball_r_notpro()
 {
   ba_val();
   sort();
-  r = sqrtf(((x1 + x2 + x3 + x4 + x5) * (x1 + x2 + x3 + x4 + x5)) + ((y1 + y2 + y3 + y4 + y5) * (y1 + y2 + y3 + y4 + y5)));
-  r_notpro = distance.movingaverage(r) * rev_value_r;
-  r_pro = degfunc2(r_notpro);
+  float r = sqrtf(((x1 + x2 + x3 + x4 + x5) * (x1 + x2 + x3 + x4 + x5)) + ((y1 + y2 + y3 + y4 + y5) * (y1 + y2 + y3 + y4 + y5)));
+  r_notpro = distance.entervalue(r) * rev_value_r;
+  r_pro = Set::degfunc2(r_notpro);
   return r_notpro;
 }
-void BALL()
+void Ball()
 {
-  pinMode();
 }
