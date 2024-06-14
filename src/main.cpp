@@ -46,7 +46,7 @@ void loop()
   if (flag == 3)
   { // go!
     motor_m.motor_deg(Set::degfunc(deg));
-    flag = 0;
+    flag= 0;
   }
   if (flag == 4)
   { // line反応してる
