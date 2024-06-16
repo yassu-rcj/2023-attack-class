@@ -10,6 +10,7 @@ Motor motor_m;
 PDcon pdcon_p;
 Bno bno_b;
 
+
 void setup()
 {
   Serial.begin(9600);
@@ -20,6 +21,7 @@ void loop()
   char flag_lin = 0;
   int deg = 0;
   int lin_deg = 0;
+  int 
   if (flag == 0)
   { // 　姿勢制御
     bno_b.get_bno_data();
