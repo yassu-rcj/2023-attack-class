@@ -20,10 +20,10 @@ void loop()
   char flag = 0;
   char flag_lin = 0;
   int deg = 0;
-  int lin_deg = 0;
-  int 
+  int lin_deg = 0; 
   if (flag == 0)
   { // 　姿勢制御
+  Serial.print(flag);
     bno_b.get_bno_data();
     motor_m.motor_turn(bno_b.deg_body, 0);
     flag = 1;

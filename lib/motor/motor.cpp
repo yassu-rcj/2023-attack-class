@@ -108,12 +108,12 @@ void Motor::motor_turn(float NOW, float tardeg) // degは方位角
 }
 Motor::Motor()
 {
-    pinMode(IN1mo1, OUTPUT);
-    pinMode(IN2mo1, OUTPUT);
-    pinMode(IN1mo2, OUTPUT);
-    pinMode(IN2mo2, OUTPUT);
-    pinMode(IN1mo3, OUTPUT);
-    pinMode(IN2mo3, OUTPUT);
-    pinMode(IN1mo4, OUTPUT);
-    pinMode(IN2mo4, OUTPUT);
+    IN1mo1=2;
+    IN2mo1=3;
+    IN1mo2=4;
+    IN2mo2=5;
+    IN1mo3=6;
+    IN2mo3=7;
+    IN1mo4=8;
+    IN2mo4=9;
 }

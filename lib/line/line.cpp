@@ -4,22 +4,22 @@ Line::Line()
 }
 void Line::Line_value()
 {
-    this->line1 = 1;
-    this->line2 = 1;
-    this->line3 = 1;
-    this->line4 = 1;
-    this->line5 = 1;
-    this->line6 = 1;
-    this->line7 = 1;
-    this->line8 = 1;
-    this->line9 = 1;
-    this->line10 = 1;
-    this->line11 = 1;
-    this->line12 = 1;
-    this->line13 = 1;
-    this->line14 = 1;
-    this->line15 = 1;
-    this->line16 = 1;
+    this->line1 = digitalRead();
+    this->line2 = digitalRead()
+    this->line3 = digitalRead();
+    this->line4 = digitalRead();
+    this->line5 = digitalRead();
+    this->line6 = digitalRead();
+    this->line7 = digitalRead();
+    this->line8 = digitalRead();
+    this->line9 = digitalRead();
+    this->line10 = digitalRead();
+    this->line11 = digitalRead();
+    this->line12 = digitalRead();
+    this->line13 = digitalRead();
+    this->line14 = digitalRead();
+    this->line15 = digitalRead();
+    this->line16 = digitalRead();
 }
 void Line::line_conv()
 {

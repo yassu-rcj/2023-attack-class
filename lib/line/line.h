@@ -11,7 +11,7 @@ private:
     float x, y;
 
 public:
-     Line();
+    Line();
     void Line_value();
     void line_conv();
     float line_deg();
