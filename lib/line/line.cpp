@@ -1,25 +1,27 @@
 #include <line.h>
+#include <motor.h>
+Motor motor;
 Line::Line()
 {
 }
 void Line::Line_value()
 {
-    this->line1 = digitalRead();
-    this->line2 = digitalRead()
-    this->line3 = digitalRead();
-    this->line4 = digitalRead();
-    this->line5 = digitalRead();
-    this->line6 = digitalRead();
-    this->line7 = digitalRead();
-    this->line8 = digitalRead();
-    this->line9 = digitalRead();
-    this->line10 = digitalRead();
-    this->line11 = digitalRead();
-    this->line12 = digitalRead();
-    this->line13 = digitalRead();
-    this->line14 = digitalRead();
-    this->line15 = digitalRead();
-    this->line16 = digitalRead();
+    this->line1 = digitalRead(36);
+    this->line2 = digitalRead(37);
+    this->line3 = digitalRead(38);
+    this->line4 = digitalRead(46);
+    this->line5 = digitalRead(45);
+    this->line6 = digitalRead(44);
+    this->line7 = digitalRead(43);
+    this->line8 = digitalRead(42);
+    this->line9 = digitalRead(41);
+    this->line10 = digitalRead(40);
+    this->line11 = digitalRead(30);
+    this->line12 = digitalRead(31);
+    this->line13 = digitalRead(32);
+    this->line14 = digitalRead(33);
+    this->line15 = digitalRead(34);
+    this->line16 = digitalRead(35);
 }
 void Line::line_conv()
 {
