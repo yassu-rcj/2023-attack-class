@@ -1,5 +1,4 @@
 #include <MA.h>
-#define n 5
 void MAandRingBufa::setlength(int length)
 {
     this->length = length;
@@ -7,64 +6,31 @@ void MAandRingBufa::setlength(int length)
 float MAandRingBufa::entervalue(float value)
 {
     this->count++;
-    if (times == 0)
+    if (count <= abcdef-1)
     {
-        if (count <= 20)
-        {
-            record[count] = value;
-            average = sum / (count + 1);
-            return average;
-        }
-        else if (count == 21)
-        {
-            count = 0;
-            average = ((sum - record[0]) / 21) + (value / 21);
-            times++;
-            return average;
-        }
-        else
-        {
-            Serial.begin(9600);
-            Serial.println("error");
-            return -1;
-        }
+        record[count] = value;
+        MAandRingBufa::SumOfArray();
+        average = sum / (count + 1);
+        return average;
     }
-    else if (1 <= times || times <= length)
+    else if (count == abcdef)
     {
-        if (count <= 20)
-        {
-            average = ((sum - record[count]) / 21) + (value / 21);
-            return average;
-        }
-        else
-        {
-            count = 0;
-            average = ((sum - record[0]) / 21) + (value / 21);
-            times++;
-            return average;
-        }
+        count = 0;
+        average = ((sum - record[0]) / abcdef) + (value / abcdef);
+        MAandRingBufa::reset();
+        return average;
     }
     else
     {
-        if (count <= 20)
-        {
-            average = ((sum - record[count]) / 21) + (value / 21);
-            MAandRingBufa::reset();
-            return average;
-        }
-        else
-        {
-            count = 0;
-            average = ((sum - record[0]) / 21) + (value / 21);
-            times++;
-            MAandRingBufa::reset();
-            return average;
-        }
+        
+        Serial.println("error");
+        return -1;
     }
 }
 void MAandRingBufa::SumOfArray()
 {
-    for (int i = 0; i <= 20; i++)
+    sum = 0;
+    for (int i = 0; i < abcdef; i++)
     {
         sum = sum + record[i];
     }
@@ -76,7 +42,7 @@ void MAandRingBufa::reset()
     this->top = 0;
     this->bottom = 0;
     this->times = 0;
-    for (int i = 0; i <= 20; i++)
+    for (int i = 0; i <= abcdef-1; i++)
     {
         this->record[i] = 0.0;
     }

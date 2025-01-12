@@ -50,7 +50,7 @@ float Set::degfunc2(int b)
   }
   else if ((90 < b) && (b <= 180))
   {
-    b = 360 - b;
+    b = 450 - b;
   }
   else if ((180 < b) && (b <= 270))
   {
@@ -58,7 +58,8 @@ float Set::degfunc2(int b)
   }
   else if ((270 < b) && (b < 360))
   {
-    b = 450 - b;
+    b =
+        450 - b;
   }
   return b;
 }
@@ -93,4 +94,18 @@ float Set::vectodis(float x, float y)
 {
   float r = sqrtf((x * x) + (y * y));
   return r;
+}
+float Set::degfunc4(float b)
+{
+  if (b >= 0)
+  {
+    b = b * 180 / M_PI;
+    return b;
+  }
+  else
+  {
+    b = b + 2 * M_PI;
+    b = b * 180 / M_PI;
+    return b;
+  }
 }

@@ -13,5 +13,6 @@ public:
     static float vector_opo_r(float, float);
     static float vectodeg(float, float); // 仰角
     static float vectodis(float, float);
+    static float degfunc4(float b);
 };
 #endif
